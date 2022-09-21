@@ -1,0 +1,35 @@
+/* public/styles/frontend/page.css */
+
+.Page .main{
+    display: grid;
+    grid-template-columns: 70% auto;
+    grid-gap: 20px;
+    min-height: 600px;
+    padding: 20px;
+}
+
+.Page .main .content{
+    border-right: 1px solid var(--background-light);
+    padding-right: 20px;
+}
+
+.Page .main .content .title{
+    font: 20px/1.5 Oswald, Bayon;
+    padding-bottom: 20px;
+}
+
+.Page .main .content .text-content{
+    font: 14px/1.5 Courgette, HandWriting
+}
+
+@media screen and (max-width: 600px){
+    .Page .main{
+        grid-template-columns: 100%;
+        min-height: auto;
+    }
+
+    .Page .main .content{
+        border-right: none;
+        padding-right: 0;
+    }
+}

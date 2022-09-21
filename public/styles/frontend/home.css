@@ -1,0 +1,125 @@
+/* public/styles/frontend/home.css */
+
+.feature-post{
+    display: grid;
+    grid-template-columns: 25% auto auto 25%;
+    grid-gap: 7px;
+    padding: 20px;
+    background-color: var(--foreground);
+}
+
+.feature-post .post:nth-child(2),
+.feature-post .large-thumb{
+    grid-column: 2 / span 2;
+}
+
+.feature-post .post:nth-child(2) .thumb .play-icon,
+.feature-post .large-thumb .thumb .play-icon{
+    width: 15% !important;
+}
+
+.feature-post .paginate{
+    margin-top: 20px;
+}
+
+.feature-post .post .thumb{
+    position: relative;
+    padding-top: 56.25%;
+    display:block;
+}
+
+.feature-post .post .thumb img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+.feature-post .post .thumb .play-icon{
+    width: 20%;
+    min-height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.feature-post .post .title{
+    font: 15px/1.5 Oswald, Bayon;
+    padding-bottom: 10px;
+}
+
+.feature-post .post .content{
+    font: 14px/1.5 Courgette, HandWriting;
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.feature-post .post:nth-child(2) .content{
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.front-ad{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 7px;
+    padding: 7px;
+}
+
+.front-ad img{
+    width: 100%;
+}
+
+.post-list{
+    display: grid;
+    grid-template-columns: calc(25% - 5.25px) calc(25% - 5.25px)
+    calc(25% - 5.25px) calc(25% - 5.25px) ;
+    grid-gap: 7px;
+    padding: 0 7px 7px;
+}
+
+.pagination{
+    text-align: center;
+    padding-top: 10px;
+    font: 18px/1.5 StardosStencil, Limonf3;
+}
+
+.pagination p{
+    padding-bottom: 10px;
+}
+
+.pagination img:hover{
+    cursor: pointer;
+    opacity: .7;
+}
+
+@media screen and (max-width: 600px){
+    .feature-post{
+        grid-template-columns: 100%;
+        grid-gap: 10px;
+        padding: 15px;
+    }
+
+    .front-ad{
+        grid-template-columns: 100%;
+    }
+
+    .feature-post .post{
+        padding-bottom: 30px;
+    }
+
+    .feature-post .post:nth-child(2),
+    .feature-post .large-thumb{
+        grid-column: 1 / span 1;
+    }
+
+    .feature-post .post .thumb .play-icon{
+        width: 15%;
+    }
+}

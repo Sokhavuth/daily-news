@@ -1,0 +1,59 @@
+/* public/styles/index.css */
+
+.Index{
+    background-color: var(--foreground);
+    margin: 50px auto;
+}
+
+.Index header .inner{
+    display: grid;
+    grid-template-columns: 25% auto 25%;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.Index header .inner .date{
+    text-align: left;
+    font: 18px/1.5 Oswald, Bayon;
+}
+
+.Index header .inner .title{
+    font: 40px/1.5 PirataOne, Koulen;
+}
+
+.Index header .inner .title .description{
+    font: 18px/1 StardosStencil, Bayon;
+}
+
+.Index header .inner form{
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.Index header .inner form input{
+    font: var(--bordy-font);
+    padding: 1px 5px;
+}
+
+
+.Index footer{
+    text-align: center;
+    padding: 50px 0;
+    background: var(--background-light);
+}
+
+@media only screen and (max-width: 600px){
+    .Index header .inner{
+        grid-template-columns: 100%;
+        padding: 10px;
+    }
+
+    .Index header .inner .date{
+        text-align: center;
+    }
+
+    .Index header .inner form{
+        padding-top: 10px;
+    }
+}
