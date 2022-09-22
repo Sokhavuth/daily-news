@@ -17,7 +17,9 @@
 <% if(data.items){ %>
 <div class="post-list">
     <div class="article">
-        <% for(let index=15; index<data.items.length; index++){ %>
+        <% for(let index=0; index<data.items.length; index++){ %>
+        <% if(index<15){ %>
+        <div class="mobile">
         <a class="thumb" href="/post/<%= data.items[index].key %>">
             <img src="<%= data.items[index].thumb %>" />
             <% if(data.items[index].videos){ %>
@@ -26,7 +28,6 @@
                         <img class="play-icon" src="/images/play.png" />
                     <% } %>
                 <% } %>
-
             <% } %>
         </a>
         <div class="content">
@@ -35,6 +36,26 @@
             </a>
             <div class="text-content"><%- data.items[index].content %></div>
         </div>
+        </div>
+        <% }else{ %>
+            <a class="thumb" href="/post/<%= data.items[index].key %>">
+                <img src="<%= data.items[index].thumb %>" />
+                <% if(data.items[index].videos){ %>
+                    <% if(data.items[index].videos !== ""){ %>
+                        <% if(data.items[index].videos !== "[]"){ %>
+                            <img class="play-icon" src="/images/play.png" />
+                        <% } %>
+                    <% } %>
+    
+                <% } %>
+            </a>
+            <div class="content">
+                <a class="title" href="/post/<%= data.items[index].key %>">
+                    <%= data.items[index].title %>
+                </a>
+                <div class="text-content"><%- data.items[index].content %></div>
+            </div>
+        <% } %>
         <% } %>
     </div>
     
