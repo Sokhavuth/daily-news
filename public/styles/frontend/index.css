@@ -1,7 +1,7 @@
 /* public/styles/index.css */
 
 .Index{
-    background-color: var(--foreground);
+    background-color: var(--body);
     margin: 50px auto;
 }
 
@@ -36,7 +36,6 @@
     padding: 1px 5px;
 }
 
-
 .Index footer{
     text-align: center;
     padding: 50px 0;
@@ -44,6 +43,10 @@
 }
 
 @media only screen and (max-width: 600px){
+    .Index{
+        margin: 0; 
+    }
+
     .Index header .inner{
         grid-template-columns: 100%;
         padding: 10px;
@@ -55,5 +58,9 @@
 
     .Index header .inner form{
         padding-top: 10px;
+    }
+
+    .Index .feature{
+        display: none;
     }
 }

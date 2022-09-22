@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="/styles/frontend/carousel.css" />
+<div class="scene">
+    <div class="carousel">
+        <% if(data.items){ %>
+            <% for(let index=0; index<15; index++){ %>
+            <div class="carousel__cell">
+                <a href="/post/<%= data.items[index].key %>">
+                    <img src="<%= data.items[index].thumb %>" />
+                    <% if(data.items[index].videos){ %>
+                        <% if(data.items[index].videos !== ""){ %>
+                            <% if(data.items[index].videos !== "[]"){ %>
+                                <img class="play-icon" src="/images/play.png" />
+                            <% } %>
+                        <% } %>
+                    <% } %>
+                    <p><%= data.items[index].title %></p>
+                </a>
+            </div>
+            <% } %>
+        <% } %>
+    </div>
+</div>
+
+  <div class="carousel-options" style="display: none;">
+    <p>
+      <label>
+        Cells
+        <input class="cells-range" type="range" min="3" max="15" value="15" />
+      </label>
+    </p>
+    <p>
+      <button class="previous-button">Previous</button>
+      <button class="next-button">Next</button>
+    </p>
+    <p>
+      Orientation:
+      <label>
+        <input type="radio" name="orientation" value="horizontal" checked />
+        horizontal
+      </label>
+      <label>
+        <input type="radio" name="orientation" value="vertical" />
+        vertical
+      </label>
+    </p>
+  </div>
+  <script src="/scripts/carousel.js"></script>

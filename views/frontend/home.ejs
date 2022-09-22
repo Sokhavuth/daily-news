@@ -4,54 +4,8 @@
 <script src="/scripts/paginate.js"></script>
 
 <% if(data.items){ %>
-<div class="feature-post">
-        <div class="post">
-            <a class="thumb" href="/post/<%= data.items[1].key %>">
-                <img src="<%= data.items[1].thumb %>" />
-                <% if(data.items[1].videos){ %>
-                <% if((data.items[1].videos !== "")&&(data.items[1].videos !== "[]")){ %>
-                <img class="play-icon" src="/images/play.png" />
-                <% } %>
-                <% } %>
-                
-            </a>
-            <a href="/post/<%= data.items[1].key %>">
-                <p class="title"><%= data.items[1].title %></p>
-            </a>
-            <div class="content"><%- data.items[1].content %></div>
-        </div>
-
-        <div class="post">
-            <a class="thumb" href="/post/<%= data.items[0].key %>">
-                <img src="<%= data.items[0].thumb %>" />
-                <% if(data.items[0].videos){ %>
-                <% if((data.items[0].videos !== "")&&(data.items[0].videos !== "[]")){ %>
-                <img class="play-icon" src="/images/play.png" />
-                <% } %>
-                <% } %>
-                
-            </a>
-            <a href="/post/<%= data.items[0].key %>">
-                <p class="title"><%= data.items[0].title %></p>
-            </a>
-            <div class="content"><%- data.items[0].content %></div>
-        </div>
-
-        <div class="post">
-            <a class="thumb" href="/post/<%= data.items[2].key %>">
-                <img src="<%= data.items[2].thumb %>" />
-                <% if(data.items[2].videos){ %>
-                <% if((data.items[2].videos !== "")&&(data.items[2].videos !== "[]")){ %>
-                <img class="play-icon" src="/images/play.png" />
-                <% } %>
-                <% } %>
-                
-            </a>
-            <a href="/post/<%= data.items[2].key %>">
-                <p class="title"><%= data.items[2].title %></p>
-            </a>
-            <div class="content"><%- data.items[2].content %></div>
-        </div>
+<div class="feature">
+    <%- include("./carousel") %>
 </div>
 <% } %>
 
@@ -61,29 +15,30 @@
 </div>
 
 <% if(data.items){ %>
-<div class="feature-post articles">
-<% for(let v=3; v<data.fpostLimit; v++){ %>
-    <div class="post">
-        <% if(v === 4){ %>
-            <a class="thumb" href="/post/<%= data.items[v].key %>">
-                <img src="<%= data.items[v].thumb %>" />
-                <% if(data.items[v].videos){ %>
-                <% if((data.items[v].videos !== "")&&(data.items[v].videos !== "[]")){ %>
-                <img class="play-icon" src="/images/play.png" />
+<div class="post-list">
+    <div class="article">
+        <% for(let index=15; index<data.items.length; index++){ %>
+        <a class="thumb" href="/post/<%= data.items[index].key %>">
+            <img src="<%= data.items[index].thumb %>" />
+            <% if(data.items[index].videos){ %>
+                <% if(data.items[index].videos !== ""){ %>
+                    <% if(data.items[index].videos !== "[]"){ %>
+                        <img class="play-icon" src="/images/play.png" />
+                    <% } %>
                 <% } %>
-                <% } %>
-            </a>
-            <a href="/post/<%= data.items[v].key %>">
-                <p class="title"><%= data.items[v].title %></p>
-            </a>
-        <% }else{ %>
-        <a href="/post/<%= data.items[v].key %>">
-            <p class="title"><%= data.items[v].title %></p>
+
+            <% } %>
         </a>
-        <div class="content"><%- data.items[v].content %></div>
+        <div class="content">
+            <a class="title" href="/post/<%= data.items[index].key %>">
+                <%= data.items[index].title %>
+            </a>
+            <div class="text-content"><%- data.items[index].content %></div>
+        </div>
         <% } %>
     </div>
-<% } %>
+    
+    <div class="sidebar"><%- include("./sidebar") %></div>
 </div>
 <% } %>
 

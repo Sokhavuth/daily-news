@@ -13,7 +13,7 @@ class Setting{
     }
 
     async getSetting(req){
-        return await req.mydb.setting.get("l80dkssj")
+        return await req.mydb.setting.get("l8cduam4")
     }
 
     async updateSetting(req){

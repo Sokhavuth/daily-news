@@ -26,7 +26,7 @@ nav{
   }
   
   .topnav a.active {
-    background-color: rgb(0, 117, 117);
+    background-color: var(--background);
     color: white;
   }
   

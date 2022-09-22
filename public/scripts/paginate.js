@@ -15,37 +15,23 @@ function appendItem(items, data){
     let html = ''
     
     if(items){
-        for(let v=0; v<items.length; v++){
-            if(v === 1){
-                html += `<div class="post paginate large-thumb">`
-            }else if(v <= 2){
-                html += `<div class="post paginate">`
-            }else if(v === 4){
-                html += `<div class="post large-thumb">`
-            }else{
-                html += `<div class="post">`
-            }
-
-            if((v === 1)||(v === 4)){
-                html += `<a class="thumb" href="/post/${items[v].key}">`
-                html += `<img src="${items[v].thumb}" />`
-                if(items[v].videos){ 
-                    if((items[v].videos !== "")&&(items[v].videos !== "[]")){
+        for(let index=0; index<items.length; index++){
+            html += `<a class="thumb" href="/post/${data.items[index].key}">`
+            html += `<img src="${data.items[index].thumb}" />`
+            if(data.items[index].videos){ 
+                if(data.items[index].videos !== ""){ 
+                    if(data.items[index].videos !== "[]"){ 
                         html += `<img class="play-icon" src="/images/play.png" />`
                     }
-                } 
-                html += `</a>`
-                html += `<a href="/post/${items[v].key}">`
-                html += `<p class="title">${items[v].title}</p>`
-                html += `</a>`
-            }else{
-                html += `<div class="post">`
-                html += `<a href="/post/${items[v].key}">`
-                html += `<p class="title">${items[v].title}</p>`
-                html += `</a>`
-                html += `<div class="content">${items[v].content}</div>`
-                html += `</div>`
+                }
+
             }
+            html += `</a>`
+            html += `<div class="content">`
+            html += `<a class="title" href="/post/${data.items[index].key}">`
+                html += data.items[index].title
+            html += `</a>`
+            html += `<div class="text-content">${data.items[index].content}</div>`
             html += `</div>`
         } 
     }
@@ -59,7 +45,7 @@ function appendItem(items, data){
         message = `${data.count - data.page*data.fpostLimit} more posts`
     }
 
-    $('.articles').append(html)
+    $('.article').append(html)
     $('.pagination p').html(message)
     
     $('.pagination img').attr('src', '/images/loadmore.png')
