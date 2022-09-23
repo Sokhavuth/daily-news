@@ -23,6 +23,7 @@ function appendItem(items, data){
                     html += `<img class="play-icon" src="/images/play.png" />`
                 }
             }
+            html += `<div class="date">${new Date(item.date).toLocaleDateString("it-IT")}</div>`
             html += `<div class="title">${item.title}</div>`
             html += `</a>`
         }

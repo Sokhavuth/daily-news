@@ -6,8 +6,7 @@
 <section class="Category">
     <% if(data.items){ %>
     <div class="inner region">
-            <% for(let item of data.items){ %>
-                
+            <% for(let item of data.items){ %>  
                 <a href="/post/<%= item.key %>">
                     <img class="thumb" src="<%= item.thumb %>" />
                     <% if(item.videos){ %>
@@ -15,9 +14,9 @@
                             <img class="play-icon" src="/images/play.png" />
                         <% } %>
                     <% } %>
+                    <div class="date"><%= new Date(item.date).toLocaleDateString("it-IT") %></div>
                     <div class="title"><%= item.title %></div>
-                </a>
-                
+                </a>   
             <% } %>
     </div>
     <div class="pagination">
